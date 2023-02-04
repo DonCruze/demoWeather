@@ -1,0 +1,26 @@
+server:
+  port: 8070
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/weath
+    username: postgres
+    password: 1234
+
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true
+  liquibase:
+    url: jdbc:postgresql://localhost:5432/weath
+    user: postgres
+    password: 1234
+    change-log: classpath:liquibase/db.changelog-master.xml
+
+
+jwt:
+  token:
+    secret: MegaLargeSigningSecretKeyForDemoApplicationMegaLargeSigningSecretKeyForDemoApplication
+    expired: 3600000
+

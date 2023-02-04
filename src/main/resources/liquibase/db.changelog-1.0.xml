@@ -1,0 +1,160 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+
+    <changeSet id="1.0.0" author="ula">
+        <createTable tableName="users">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="user_name" type="text">
+            </column>
+
+            <column name="email" type="text">
+            </column>
+
+            <column name="password" type="text">
+            </column>
+
+            <column name="deleted" type="BOOLEAN" defaultValue="false">
+            </column>
+
+            <column name="created" type="TIMESTAMP">
+
+            </column>
+
+            <column name="updated" type="TIMESTAMP">
+
+            </column>
+
+            <column name="status" type="text" defaultValue="ACTIVE">
+            </column>
+
+        </createTable>
+    </changeSet>
+
+
+    <changeSet id="1.0.1" author="ula">
+        <createTable tableName="roles">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="name" type="text">
+            </column>
+
+            <column name="created" type="TIMESTAMP">
+
+            </column>
+
+            <column name="updated" type="TIMESTAMP">
+
+            </column>
+
+            <column name="status" type="text" defaultValue="ACTIVE">
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="1.0.2" author="ula">
+        <createTable tableName="city">
+
+
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+
+            <column name="name" type="text">
+            </column>
+
+            <column name="temperature" type="DOUBLE">
+            </column>
+
+            <column name="deleted" type="BOOLEAN" defaultValue="false">
+            </column>
+
+
+            <column name="dateTimeMs" type="BIGINT">
+            </column>
+
+            <column name="cloudAmount" type="text">
+            </column>
+
+            <column name="dataTimeOfDay" type="text">
+            </column>
+
+
+            <column name="created" type="TIMESTAMP">
+
+            </column>
+
+            <column name="updated" type="TIMESTAMP">
+
+            </column>
+
+            <column name="status" type="text" defaultValue="ACTIVE">
+            </column>
+
+
+        </createTable>
+
+    </changeSet>
+
+
+    <changeSet id="1.0.3" author="ula">
+        <createTable tableName="users_cities">
+
+            <column name="user_id" type="bigint">
+            </column>
+
+            <column name="cities_id" type="bigint">
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="1.0.4" author="ula">
+        <createTable tableName="user_roles">
+            <column name="user_id" type="BIGINT">
+            </column>
+
+            <column name="role_id" type="BIGINT">
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="1.0.9" author="ula">
+        <insert tableName="roles">
+            <column name="name" value="ROLE_USER"/>
+        </insert>
+
+        <insert tableName="roles">
+            <column name="name" value="ROLE_ADMIN"/>
+        </insert>
+
+    </changeSet>
+
+    <changeSet id="1.1.0" author="ula">
+
+        <insert tableName="users">
+            <column name="user_name" value="admin"/>
+            <column name="password" value="12345678"/>
+            <column name="email" value="admin@gmail.com"/>
+        </insert>
+
+    </changeSet>
+
+    <changeSet id="1.1.1" author="ula">
+
+        <insert tableName="user_roles">
+            <column name="user_id" value="1"/>
+            <column name="role_id" value="2"/>
+        </insert>
+
+
+    </changeSet>
+
+</databaseChangeLog>
